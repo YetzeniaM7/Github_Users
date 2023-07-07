@@ -1,15 +1,28 @@
 const input = document.querySelector('#input');
 const list = document.querySelector('#list');
 
+let timeoutId;
+
+// Función debounce para retrasar la ejecución de una función
 function debounce(func, delay) {
-  let timeout;
-  return function(...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      func.apply(this , args);
-    }, delay);
-  };
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(func, delay);
 }
+
+//Se agrega la siguiente función con el proposito de que, cuando el cliente escriba un nombre de usuario, se le mostraran 3 sugerencia relacionado a ese nombre
+async function showSearchSuggestions(value) {
+    const response = await fetch(`https://api.github.com/search/users?q=${value}+in:login&per_page=3`);
+    const json = await response.json();
+    suggestions.innerHTML = '';
+    if (json.items) {
+      for (const item of json.items) {
+        const option = document.createElement('option');
+        option.value = item.login;
+        suggestions.appendChild(option);
+    }
+  }
+}
+
 async function showSuggestions(value) {
   const response = await fetch(`https://api.github.com/search/users?q=${value}+in:login&per_page=3`);
   const json = await response.json();
@@ -39,11 +52,14 @@ async function showSuggestions(value) {
   console.log(`Buscando usuario con nombre: ${value}`);
 }
 
-const showSuggestionsDebounced = debounce (showSuggestions, 500);
-
 input.addEventListener('input', () => {
   const value = input.value;
-  showSuggestionsDebounced(value);
+  debounce(() => showSearchSuggestions(value), 300);
+});
+
+button.addEventListener('click', () => {
+  const value = input.value;
+  debounce(() => showSuggestions(value), 300);
 });
 
 //Se agrega la función con el objetivo de visualizar la cantidad de repositorio, al igual que la compañia del ususario, en caso que no tenga agregada, se reflejara N/A, y no (NULL)

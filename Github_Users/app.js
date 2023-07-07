@@ -1,5 +1,7 @@
 const input = document.querySelector('#input');
-const list = document.querySelector('#list');
+const button = document.querySelector('#button');
+const table = document.querySelector('#table');
+const suggestions = document.querySelector('#suggestions');
 
 let timeoutId;
 

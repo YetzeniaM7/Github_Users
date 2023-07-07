@@ -45,3 +45,18 @@ input.addEventListener('input', () => {
   const value = input.value;
   showSuggestionsDebounced(value);
 });
+
+//Se agrega la función con el objetivo de visualizar la cantidad de repositorio, al igual que la compañia del ususario, en caso que no tenga agregada, se reflejara N/A, y no (NULL)
+async function read_users(value_username){
+  let company;
+  await fetch('https://api.github.com/users/'+ value_username)
+    .then(response => response.json())
+    .then(json => {
+      company = {
+        company: json.company || "N/A",
+        name: json.name || "N/A",
+        public_repos: json.public_repos
+      };
+    });
+  return company;
+};

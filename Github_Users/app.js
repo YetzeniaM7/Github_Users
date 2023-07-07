@@ -45,3 +45,17 @@ input.addEventListener('input', () => {
   const value = input.value;
   showSuggestionsDebounced(value);
 });
+
+async function read_users(value_username){
+  let company;
+  await fetch('https://api.github.com/users/'+ value_username)
+    .then(response => response.json())
+    .then(json => {
+      company = {
+        company: json.company || "N/A",
+        name: json.name || "N/A",
+        public_repos: json.public_repos
+      };
+    });
+  return company;
+};

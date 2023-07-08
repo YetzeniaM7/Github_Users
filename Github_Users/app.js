@@ -78,3 +78,31 @@ async function read_users(value_username){
     });
   return company;
 };
+
+//Agregamos modo oscuro
+
+function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+}
+
+// Obtener el botón de cambio de modo
+const toggleBtn = document.getElementById('toggleDarkModeBtn');
+
+// Agregar el evento click para cambiar el modo
+toggleBtn.addEventListener('click', toggleDarkMode);
+
+// Función para ocultar/mostrar tabla
+
+let tabla = document.getElementById("table");
+
+// Función para mostrar la tabla
+function mostrarTabla() {
+  tabla.style.display = "table";
+}
+
+// Función para ocultar la tabla
+function ocultarTabla() {
+  tabla.style.display = "none";
+}
+            

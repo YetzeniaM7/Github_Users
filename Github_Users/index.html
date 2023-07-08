@@ -3,36 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="public/stylesheet/style.css">
+    <link rel="icon" href="public/images/icon github.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>API-GitHub Search</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
     
 </head>
 <body>
-    <label class="switch">
-        <input type="checkbox" id="toggleDarkModeBtn" class="switch-input"> 
-        <span class="slider round"></span>
-    </label>
-    //Logo GitHub
-    <img src="./images/Recurso 1.png" alt="github" class="github-logo">    
-    //Configuración para que te de sugerencia cuando busque un usuario
-    <input type="text" id="input" list="suggestions" class="cuadro-text">
-    <datalist id="suggestions"></datalist>
-    //Botones de enviar(Muesstra tabla) y cancelar(Oculta la tabla)
+<div class="dark_lightselect">
+    <div class="div_dark_light">
+        <button  type="button" name="button" id="sol"><i class="fas fa-sun"></i></button>
+        <button  type="button" name="button" id="luna"><i class="fas fa-moon"></i></button>
+    </div> 
+</div>
+
+<img src="public/images/Recurso 1.png" alt="github" class="github-logo">
+
+<input type="text" id="input" list="suggestions" class="cuadro-text">
+
+<div id="error" class="error">
+    <span id="error-message"></span>
+    <button id="close-error">X</button>
+</div>
+
+<div class="mybuttons">
     <button id="button" class="button" onclick="mostrarTabla()">Enviar</button>
-    <button class="button2" onclick="ocultarTabla()">Cancelar</button>
+</div>
+   
+<hr>
 
-    <hr>
-
-        <table id="table">
-            <tr>    
-                <th>ID</th>
-                <th>Foto</th>
-                <th>Usuario</th>
-                <th>Empresa</th>
-                <th>Nombre</th>
-                <th>Cant. Repositorios</th>
-                </tr>  
-        </table>
-      </div>
-    <script src="app.js"></script>
+<table id="table">
+    <tr>    
+        <th>ID</th>
+        <th>Foto</th>
+        <th>Usuario</th>
+        <th>Empresa</th>
+        <th>Nombre</th>
+        <th>Cant. Repositorios</th>
+    </tr>  
+</table>
+<script src="app.js"></script>
 </body>
 </html>

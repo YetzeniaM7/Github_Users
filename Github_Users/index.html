@@ -7,20 +7,32 @@
     
 </head>
 <body>
-    <input type="text" id="input">
-    <button id="button">Enviar</button>
-    <table id="table">
-        <tr>
-            <tr><th>Datos relevantes</th></tr>
-            
-            <th>ID</th>
-      <th>Foto</th>
-      <th>Usuario</th>
-      <th>Empresa</th>
-      <th>Nombre</th>
-      <th>Cant. Repositorios</th>
-        </tr>
-      </table>
+    <label class="switch">
+        <input type="checkbox" id="toggleDarkModeBtn" class="switch-input"> 
+        <span class="slider round"></span>
+    </label>
+    //Logo GitHub
+    <img src="./images/Recurso 1.png" alt="github" class="github-logo">    
+    //Configuración para que te de sugerencia cuando busque un usuario
+    <input type="text" id="input" list="suggestions" class="cuadro-text">
+    <datalist id="suggestions"></datalist>
+    //Botones de enviar(Muesstra tabla) y cancelar(Oculta la tabla)
+    <button id="button" class="button" onclick="mostrarTabla()">Enviar</button>
+    <button class="button2" onclick="ocultarTabla()">Cancelar</button>
+
+    <hr>
+
+        <table id="table">
+            <tr>    
+                <th>ID</th>
+                <th>Foto</th>
+                <th>Usuario</th>
+                <th>Empresa</th>
+                <th>Nombre</th>
+                <th>Cant. Repositorios</th>
+                </tr>  
+        </table>
+      </div>
     <script src="app.js"></script>
 </body>
 </html>

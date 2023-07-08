@@ -79,30 +79,31 @@ async function read_users(value_username){
   return company;
 };
 
-//Agregamos modo oscuro
+//Modo oscuro
+document.getElementById("luna").addEventListener("click", function() {
+   document.body.classList.add("dark-mode");
+});
 
-function toggleDarkMode() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-}
+//Remover modo oscuro
+document.getElementById("sol").addEventListener("click", function() {
+   document.body.classList.remove("dark-mode");
+});
 
-// Obtener el botón de cambio de modo
-const toggleBtn = document.getElementById('toggleDarkModeBtn');
+$("#input").autocomplete({
+   source: function(request, response) {
+       $.getJSON(`https://api.github.com/search/users?q=${request.term}+in:login&per_page=3`, function(data) {
+           response($.map(data.items, function(item) {
+               return {
+                   label: item.login,
+                   value: item.login
+               };
+           }));
+       });
+   },
+   position: { my: "left top", at: "left bottom" },
+   select: function(event, ui) {
+       showSuggestions(ui.item.value);
+   }
+});
 
-// Agregar el evento click para cambiar el modo
-toggleBtn.addEventListener('click', toggleDarkMode);
-
-// Función para ocultar/mostrar tabla
-
-let tabla = document.getElementById("table");
-
-// Función para mostrar la tabla
-function mostrarTabla() {
-  tabla.style.display = "table";
-}
-
-// Función para ocultar la tabla
-function ocultarTabla() {
-  tabla.style.display = "none";
-}
             

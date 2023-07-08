@@ -1,110 +1,208 @@
+/*Estilo para el Cuerpo de la pagina*/
 body {
-    background-color: white;
-    color: black;
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  /* Estilo para el modo oscuro */
-  body.dark-mode {
-    background-color: black;
-    color: white;
-  }
+   background-color: rgba(228, 222, 222, 0.7);
+   color: black;
+   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* Estilo para el modo oscuro */
+body.dark-mode {
+   background-color: black;
+   color: white;
+}
 
-.cuadro-text{
-    display: block;
-    margin-left: 42%;
+/*Style to display on screen icon moon and sin */
+.dark_lightselect {
+   position: fixed;
+   top: 10px;
+   right: 10px;
+   display: flex;
+}
+.div_dark_light{
+   background:linear-gradient(10deg, white, black, white  ) ;
+   position: relative;
+   padding: 5px 4px;
+   display: flex;
+   float: right;   
+}
+
+#sol,
+#luna{
+   display: inline-block;
+   margin-left: -1px;
+}
+  
+#sol{
+   border-radius: 40px;;
+   background-color: white;
+}
+  
+#luna{
+   background-color: white;
+   border-radius: 40px;
+}
+  
+.fa-moon,
+   .fa-sun {
+  font-size: 30px;
+}
+/*End Style to display on screen icon moon and sin */
+
+/*Div para mostrar en pantalla error cuando no se encuentre data*/
+.error {
+   display: none;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   padding: 20px;
+   width: 223px;
+   border: 1px solid red;
+   background-image: radial-gradient(circle at -20.44% 43.84%, #00b1e1 0, #00b0f5 3.33%, #00afff 6.67%, #00adff 10%, #00abff 13.33%, #00a7ff 16.67%, #00a3ff 20%, #009dff 23.33%, #0097ff 26.67%, #008eff 30%, #0085ff 33.33%, #707aff 36.67%, #9e6eff 40%, #bf60ff 43.33%, #da50f6 46.67%, #ef3de3 50%, #ff26ce 53.33%, #ff00b9 56.67%, #ff00a2 60%, #ff008c 63.33%, #ff0076 66.67%, #ff0060 70%, #ff184b 73.33%, #ff3235 76.67%, #ff451b 80%, #fc5500 83.33%, #ef6300 86.67%, #e07000 90%, #d07a00 93.33%, #bf8400 96.67%, #ac8c00 100%);
+}
+ 
+ #error-message {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight: bold;
+   color: black;
+ }
+ 
+ #close-error {
+   float: right;
+   border: none;
+   background-color: transparent;
+   margin-top: -40px;
+}
+/*Fin Div para mostrar en pantalla error cuando no se encuentre data*/
+
+/*Style para el input*/
+.cuadro-text {
+   display:block;
+   margin:  auto;
+   padding: 15px 50px;
+   border-radius: 50px;
+   border-color: #eb085f;
+}
+/*End Style para el input*/
+
+/*Estilo botones*/
+.mybuttons {
+   text-align: center;
 }
 
 .button{
-    font-weight: bold;
-    display: block;
-    margin: 1.1% auto 1% 42%  ;
-    padding:10px;  
+   font-weight: bold;
+   display: inline-block;
+   margin: 10px auto;
+   padding: 18px 80px;
+   border-collapse: collapse;
+   border-radius: 25px;
+   background-image: radial-gradient(circle at -20.44% 43.84%, #00b1e1 0, #00b0f5 3.33%, #00afff 6.67%, #00adff 10%, #00abff 13.33%, #00a7ff 16.67%, #00a3ff 20%, #009dff 23.33%, #0097ff 26.67%, #008eff 30%, #0085ff 33.33%, #707aff 36.67%, #9e6eff 40%, #bf60ff 43.33%, #da50f6 46.67%, #ef3de3 50%, #ff26ce 53.33%, #ff00b9 56.67%, #ff00a2 60%, #ff008c 63.33%, #ff0076 66.67%, #ff0060 70%, #ff184b 73.33%, #ff3235 76.67%, #ff451b 80%, #fc5500 83.33%, #ef6300 86.67%, #e07000 90%, #d07a00 93.33%, #bf8400 96.67%, #ac8c00 100%);
 }
-.button2{
-  font-weight: bold;
-  display: block;
-  margin: -3.1% auto 1% 49%;
-  padding:10px;  
-}
+/*Fin Estilo botones*/
 
+/* Estilo Logo*/
 .github-logo{
-    margin: auto;
-    margin-left: 40%;
-    width: 224px;
-    height: 224px;
+   margin: 60px auto;
+   display: block;
+   width: 200px;
+   height: 200px;
+}
+/*Fin Estilo Logo*/
+
+/*Estilo Table*/
+#table{
+   display: none;
+}
+#table {
+   font-family:Verdana, Geneva, Tahoma, sans-serif ;
+   border-collapse: collapse;
+   margin: auto;
+   text-align: center;
+ }
+ 
+ #table td, #table th {
+   border: 1px solid rgb(238, 9, 116, 0.7);
+   padding: 8px;
+}
+ 
+ #table tr:nth-child(even){
+   background:linear-gradient(  80deg,rgb(247, 46, 140,0.7), rgb(78, 49, 238,0.7))  ;
+}
+ 
+ #table tr:hover {
+   background:linear-gradient(  80deg, rgb(247, 120, 46), rgb(247, 46, 140), rgb(78, 49, 238));
+}
+ 
+ #table th {
+   font-family:Verdana, Geneva, Tahoma, sans-serif ;
+   padding-top: 12px;
+   padding-bottom: 12px;
+   text-align: left;
+   background-image: radial-gradient(circle at -20.44% 43.84%, #00b1e1 0, #00b0f5 3.33%, #00afff 6.67%, #00adff 10%, #00abff 13.33%, #00a7ff 16.67%, #00a3ff 20%, #009dff 23.33%, #0097ff 26.67%, #008eff 30%, #0085ff 33.33%, #707aff 36.67%, #9e6eff 40%, #bf60ff 43.33%, #da50f6 46.67%, #ef3de3 50%, #ff26ce 53.33%, #ff00b9 56.67%, #ff00a2 60%, #ff008c 63.33%, #ff0076 66.67%, #ff0060 70%, #ff184b 73.33%, #ff3235 76.67%, #ff451b 80%, #fc5500 83.33%, #ef6300 86.67%, #e07000 90%, #d07a00 93.33%, #bf8400 96.67%, #ac8c00 100%);
+ }
+
+ #table td {
+   font-family:Georgia, 'Times New Roman', Times, serif ;
+   font-weight: bold;
+}
+/*Fin Estilo Table*/
+
+
+
+/**Resposive*/
+@media (max-width:600px) {
+    /* Estilos para pantallas con un ancho máximo de 600px */
+   
+   
+    .cuadro-text {
+      width:80%;
+      margin:auto;
+  }
+
+  #table{
+   display: none;
+}
+  .button{
+      padding:18px;
+  }
+  .github-logo{
+      width:150px;
+      height:auto;
+  }
+  #table {
+   font-size: 14px;
+}
+#table td, #table th {
+   padding: 4px;
 }
 
-table , th,  td{
-    margin: auto;
-    border: 1px solid rgb(133, 123, 123);
-    text-align: center;
+   /* Estilos para pantallas con un ancho máximo de 600px */
+   .github-logo {
+       max-width: 100%;
+       height: auto;
+   }
+
+   /* Estilos para pantallas con un ancho máximo de 600px */
+   #table {
+       display: block;
+       overflow-x: auto;
+      }
+
+
+      /* Estilos para pantallas con un ancho máximo de 600px */
+      #table {
+          font-size: 11px;
+      }
+      #table td, #table th {
+          padding: 1px;
+      }
+
+  
+
+   /* Estilos para pantallas con un ancho máximo de 600px */
+   input[type="text"] {
+       margin-bottom: 0;
+   }
+
 }
-
-
-.switch {
-    position: absolute;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    left: 96%;
-    cursor: pointer;
-    border: none;
-    margin: auto
-  
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
 

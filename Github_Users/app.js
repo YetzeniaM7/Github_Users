@@ -9,13 +9,13 @@ const closeError = document.querySelector('#close-error');
 let timeoutId;
 
 
-// Funci贸n debounce para retrasar la ejecuci贸n de una funci贸n
+// Función debounce para retrasar la ejecución de una función
 function debounce(func, delay) {
   clearTimeout(timeoutId);
   timeoutId = setTimeout(func, delay);
 }
 
-//Se agrega la siguiente funci贸n con el proposito de que, cuando el cliente escriba un nombre de usuario, 
+//Se agrega la siguiente función con el proposito de que, cuando el cliente escriba un nombre de usuario, 
 //se le mostraran 3 sugerencia relacionado a ese usuario
 
 async function showSearchSuggestions(value) {
@@ -31,7 +31,7 @@ async function showSearchSuggestions(value) {
    }
 }
 
-//Se agrega la siguiente funci贸n con el proposito de que, cuando el cliente escriba un nombre de usuario, 
+//Se agrega la siguiente función con el proposito de que, cuando el cliente escriba un nombre de usuario, 
 //o presione el boton buscar devuelva los valores a la tabla
 
 async function showSuggestions(value) {
@@ -73,10 +73,17 @@ async function showSuggestions(value) {
    }
 }
   
-// Agregar un controlador de eventos click al bot贸n para cerrar el mensaje de error
+// Agregar un controlador de eventos click al botón para cerrar el mensaje de error
 closeError.addEventListener('click', () => {
    error.style.display = 'none';
 });
+
+
+input.addEventListener('input', () => {
+   const value = input.value;
+   debounce(() => showSearchSuggestions(value), 300);
+ });
+ 
 
 //Agregar un controlador de eventos change para cuando cambie los datos del input devuelva la data a la tabla
 input.addEventListener('change', () => {
@@ -87,7 +94,7 @@ input.addEventListener('change', () => {
 //Agregar un nuevo evento para pasarle el valor a la funcion showSearchSuggestions
 input.addEventListener('input', () => {
   const value = input.value;
-  debounce(() => showSearchSuggestions(value), 150);
+  debounce(() => showSearchSuggestions(value), 300);
 });
 
 //Agregar un nuevo controlador click
@@ -96,8 +103,8 @@ button.addEventListener('click', () => {
   debounce(() => showSuggestions(value), 300);
 });
 
-//Se agrega la funci贸n con el objetivo de visualizar la cantidad de repositorio, 
-//al igual que la compa帽ia del ususario, en caso que no tenga agregada, se reflejara N/A, y no (NULL)
+//Se agrega la función con el objetivo de visualizar la cantidad de repositorio, 
+//al igual que la compañia del ususario, en caso que no tenga agregada, se reflejara N/A, y no (NULL)
 async function read_users(value_username){
    let company;
    await fetch('https://api.github.com/users/'+ value_username)
@@ -123,19 +130,3 @@ document.getElementById("sol").addEventListener("click", function() {
 });
 
 
-$("#input").autocomplete({
-   source: function(request, response) {
-       $.getJSON(`https://api.github.com/search/users?q=${request.term}+in:login&per_page=3`, function(data) {
-           response($.map(data.items, function(item) {
-               return {
-                   label: item.login,
-                   value: item.login
-               };
-           }));
-       });
-   },
-   position: { my: "left top", at: "left bottom" },
-   select: function(event, ui) {
-       showSuggestions(ui.item.value);
-   }
-});
